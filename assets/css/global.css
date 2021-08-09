@@ -6,8 +6,8 @@ body {
     background-color: rgb(225, 235, 252);
 }
 
-.font-mosaic {
-    font-family: 'Palette Mosaic', cursive;
+.font-custom {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .font-xl {

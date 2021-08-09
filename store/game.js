@@ -4,20 +4,19 @@ export const state = () => ({
         empresa: '',
         imagem: '',
         ano: ''
-    }
+    },
+    games: []
   })
   
 export const mutations = {
-    clearGame(state) {
-        state.game = {
-            nome: '',
-            empresa: '',
-            imagem: '',
-            ano: ''
-        }
-    },
-
     setGame(state, newGame) {
         state.game = newGame
+    },
+
+    addGame(state, game) {
+        state.games.push(game)
+    },
+    deleteGame(state, index) {
+        state.games.splice(index, 1)
     }
 }
