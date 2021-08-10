@@ -13,33 +13,30 @@
         <b-icon icon="plus"></b-icon>
       </button>
     </b-col>
-    <template v-for="(game, index) in games">
-      <b-col cols="12" md="4" class="text-left cursor-pointer" :key="index">
-        <b-card
-          class="my-3"
-          @click="
-            setGameAndRedirect(
-              'Battlefield 2042',
-              'EA',
-              '2021',
-              'https://www.oficinadanet.com.br/imagens/post/37687/battlefield-2042-post-capa.jpg'
-            )
-          "
-          overlay
-          img-src="https://www.oficinadanet.com.br/imagens/post/37687/battlefield-2042-post-capa.jpg"
-          img-alt="img"
-          text-variant="white"
-          title="Battlefield 2042"
-          sub-title="EA - 2021"
-          sub-title-text-variant="white"
-        >
-        </b-card>
-      </b-col>
-    </template>
-    <b-modal v-model="addModal.show" title="Adicionar Jogo">
+    <b-card-group deck>
+      <template v-for="(game, index) in games">
+        <b-col cols="12" md="4" class="text-left cursor-pointer" :key="index">
+          <b-card
+            class="my-3 card-image-overlay"
+            @click="
+              setGameAndRedirect(game)
+            "
+            overlay
+            :img-src="game.imagem"
+            img-alt="img"
+            text-variant="white"
+            :title="game.nome"
+            :sub-title="game.empresa + ' | ' + game.ano"
+            sub-title-text-variant="white"
+          >
+          </b-card>
+        </b-col>
+      </template>
+    </b-card-group>
+    <b-modal v-model="addModal.show" hide-footer title="Adicionar Jogo">
       <b-row>
         <b-col cols="12">
-          <b-form @submit="submitAdd">
+          <b-form @submit.prevent="submitAdd">
             <b-form-group label="Nome:" label-for="nome">
               <b-form-input
                 id="nome"
@@ -76,6 +73,7 @@
                 required
               ></b-form-input>
             </b-form-group>
+            <b-button type="submit" variant="primary">Salvar</b-button>
           </b-form>
         </b-col>
       </b-row>
@@ -109,6 +107,15 @@ export default {
 
       this.$router.push("/game");
     },
+    clearModalAdd() {
+      this.addModal = {
+        show: false,
+        nome: "",
+        empresa: "",
+        imagem: "",
+        ano: "",
+      };
+    },
     submitAdd() {
       this.addGame({
         nome: this.addModal.nome,
@@ -116,6 +123,7 @@ export default {
         imagem: this.addModal.imagem,
         ano: this.addModal.ano,
       });
+      this.clearModalAdd();
     },
   },
   computed: {
