@@ -21,7 +21,6 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap' },
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/global.css'
@@ -29,9 +28,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // { src: '~/plugins/vuex-persist', ssr: false }
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
+  // Auto import components: https://go.nuxtjs.dev/config-componentseE
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

@@ -22,6 +22,19 @@ body {
     cursor: pointer
 }
 
+.slide-enter-active {
+	transition: all .4s;
+}
+
+.slide-leave-active {
+	transition: all .4s;
+}
+
+.slide-enter, .slide-leave-to {
+	transform: translateX(100px);
+	opacity: 0;
+}
+
 @media only screen and (min-width: 1200px) {
     .card-image-overlay img {
         min-width: 100%;

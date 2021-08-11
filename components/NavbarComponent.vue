@@ -1,6 +1,6 @@
 <template>
     <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand href="/">RUGames</b-navbar-brand>
+    <b-navbar-brand href="#" @click.prevent="redirect('/')">RUGames</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -22,6 +22,10 @@
 
 <script>
 export default {
-    
+    methods: {
+      redirect(to) {
+        this.$router.push(to)
+      }
+    }
 }
 </script>

@@ -3,7 +3,8 @@ export const state = () => ({
         nome: '',
         empresa: '',
         imagem: '',
-        ano: ''
+        ano: '',
+        index: ''
     },
     games: []
   })
